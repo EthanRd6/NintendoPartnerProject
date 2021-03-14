@@ -1,35 +1,45 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 
-
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<title>Games</title>
+<title>Add User</title>
 </head>
 <body>
-<form method="post" action="navigationServlet">
-<table>
-<c:forEach items="${requestScope.allGames}" var="currentitem">
-<tr>
-	<td><input type="radio" name="id" value="${currentitem.id}"></td>
-	<td>${currentitem.name}</td>
-	<td>${currentitem.year}</td>
-	<td>${currentitem.type}</td>
-	<td>${currentitem.numPlayers}</td>
-	</tr>
-</c:forEach>
-</table>
-<input type = "submit" value = "edit" name="doThisToGame">
-<input type = "submit" value = "delete" name="doThisToGame">
-<input type = "submit" value = "add" name="doThisToGame">
-</form>
-
+	<h1>Add user below</h1>
+	
+	<div class="container">
+		<form action="addUserServlet" method= "post">
+			<div class="form-group">
+				<label for="fName">First Name: </label> <input type="text" name="fName">
+			</div>
+			
+			<div class="form-group">
+				<label for="lName">Last Name:</label> <input type="text" name="lName">
+			</div>
+			
+			<div class="form-group">
+				<label for="age">Age:</label> <input type="number" name="age">
+			</div>
+			
+			<input type="submit" value="Add User" class="btn btn-primary">
+		</form>
+		<br/>
+		<button type="button" class="btn btn-primary btn-lg" onclick="location.href='viewAllGamesServlet';">View Games List</button>
+		<a href="viewAllGamesServlet"></a>
+		
+		<button type="button" class="btn btn-primary btn-lg" onclick="location.href='viewAllUsersSerlvet';">View All Users</button>
+		<a href="viewAllUsersServlet"></a>
+		
+		<button type="button" class="btn btn-primary btn-lg" onclick="location.href='viewAllListsSerlvet';">View Lists</button>
+		<a href="viewAllListsServlet"></a>
+	</div>
+	
 	<a href="Index.html">Home</a>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,26 +10,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<title>Games</title>
+<title>Game List by User</title>
 </head>
 <body>
-<form method="post" action="navigationServlet">
-<table>
-<c:forEach items="${requestScope.allGames}" var="currentitem">
-<tr>
-	<td><input type="radio" name="id" value="${currentitem.id}"></td>
-	<td>${currentitem.name}</td>
-	<td>${currentitem.year}</td>
-	<td>${currentitem.type}</td>
-	<td>${currentitem.numPlayers}</td>
-	</tr>
-</c:forEach>
-</table>
-<input type = "submit" value = "edit" name="doThisToGame">
-<input type = "submit" value = "delete" name="doThisToGame">
-<input type = "submit" value = "add" name="doThisToGame">
-</form>
-
+	<form method="post" action="userListNavigationServlet">
+	<table>
+	<c:forEach items="${requestScope.allLists}" var="currentlist">
+	<tr>
+		<td><input type="radio" name="id" value="${currentlist.listID}"></td>
+		<td><h2>${currentlist.listName}</h2></td></tr>
+		<td><h2>${currentlist.user.fName}, ${currentlist.user.lName}</h2></td>
+		<td><h4>Age: ${currentlist.user.age}</h4></td>
+		<c:forEach var="listVal" items="${currentlist.listOfGames}">
+			<tr><td></td><td colspan="4">
+				${listVal.name} , ${listVal.year}, ${listVal.type}, ${listVal.numPlayers}
+				</td>
+			</tr>
+		</c:forEach>
+	</c:forEach>
+	</table>
+	<input type="submit" value="edit" name="doThisToList">
+	<input type="submit" value="delete" name="doThisToList">
+	<input type="submit" value="add" name="doThisToList">
+	</form>
 	<a href="Index.html">Home</a>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
