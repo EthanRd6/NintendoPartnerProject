@@ -30,7 +30,7 @@
 	<input type="submit" value="delete" name="doThisToUser">
 	<input type="submit" value="add" name="doThisToUser">
 	</form>
-	<a href="Index.html">Home</a>
+	<a href="index.html">Home</a>
 	<br>
 	<a href="add-user.jsp">Add a new user</a>
 	
