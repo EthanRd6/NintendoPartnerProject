@@ -54,7 +54,7 @@ public class NavigationServlet extends HttpServlet {
 				System.out.println("Forgot to select an item");
 			}
 		} else if (act.equals("add")) {
-			path = "/index.html";
+			path = "/add-game.jsp";
 		}
 		
 		getServletContext().getRequestDispatcher(path).forward(request, response);
