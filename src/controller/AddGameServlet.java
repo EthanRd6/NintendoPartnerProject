@@ -33,13 +33,21 @@ public class AddGameServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("name");
 		String type = request.getParameter("type");
-		Integer year = Integer.parseInt(request.getParameter("year"));
-		Integer month = Integer.parseInt(request.getParameter("month"));
-		Integer day = Integer.parseInt(request.getParameter("day"));
-		LocalDate date = LocalDate.of(year, month, day);
+
+		String year = request.getParameter("year");
+
 		Integer numPlayers = Integer.parseInt(request.getParameter("numPlayers"));
+		LocalDate ld;
 		
-		Games g = new Games(date, name, type, numPlayers);
+		try {
+			ld = LocalDate.of(Integer.parseInt(year), null, (Integer) null);
+		}catch(NumberFormatException ex) {
+			ld = LocalDate.now();
+		}
+		
+
+		Games g = new Games(ld, name, type, numPlayers);
+
 		GamesHelper dao = new GamesHelper();
 		dao.addGame(g);
 		

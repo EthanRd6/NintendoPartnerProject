@@ -36,17 +36,25 @@ public class EditGameServlet extends HttpServlet {
 		GamesHelper dao = new GamesHelper();
 		
 		String name = request.getParameter("name");
-		int year = Integer.parseInt(request.getParameter("year"));
-		int month = Integer.parseInt(request.getParameter("month"));
-		int day = Integer.parseInt(request.getParameter("day"));
-		LocalDate date = LocalDate.of(year, month, day);
+
+		String year = request.getParameter("year");
+
 		String type = request.getParameter("type");
 		Integer numPlayers = Integer.parseInt(request.getParameter("numPlayers"));
 		Integer tempId = Integer.parseInt(request.getParameter("id"));
+		LocalDate ld;
+		
+		try {
+			ld = LocalDate.of(Integer.parseInt(year), null, (Integer) null);
+		}catch(NumberFormatException ex) {
+			ld = LocalDate.now();
+		}
 		
 		Games gameToUpdate = dao.searchForGameById(tempId);
 		gameToUpdate.setName(name);
-		gameToUpdate.setYear(date);
+
+		gameToUpdate.setYear(ld);
+
 		gameToUpdate.setType(type);
 		gameToUpdate.setNumPlayers(numPlayers);
 		
