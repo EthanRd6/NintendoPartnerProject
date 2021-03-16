@@ -22,8 +22,8 @@ public class UserHelper {
 	}
 	public List<User> showAllUsers() {
 		EntityManager em = emfactory.createEntityManager();
-		List<User> allShopper = em.createQuery("SELECT s FROM User s").getResultList();
-		return allShopper;
+		List<User> allUsers = em.createQuery("SELECT s FROM User s").getResultList();
+		return allUsers;
 	}	
 	
 	public User findUser(String nameToLookUp) {

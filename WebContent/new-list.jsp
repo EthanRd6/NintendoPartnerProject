@@ -19,9 +19,9 @@
         User First Name: <input type="text" name="fName"><br/>
         User Last Name: <input type="text" name="lName"><br/>
         User Age: <input type="text" name="age"><br/>
-        Available Bikes: <br/>
+        Available Games: <br/>
     <select name="allGamesToAdd" multiple size="6">
-    <c:forEach items="${requestScope.allBikes}" var="currentgame">
+    <c:forEach items="${requestScope.allGamesToAdd}" var="currentgame">
         <option value="${currentgame.game_Id}">${currentgame.name}|${currentgame.year}|${currentgame.type}${currentgame.numPlayers}</option>
     </c:forEach>
     </select>
