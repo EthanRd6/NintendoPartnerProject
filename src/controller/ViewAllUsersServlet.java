@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.User;
-
 /**
- * Servlet implementation class AddUserSerlvet
+ * Servlet implementation class ViewAllUsersServlet
  */
-@WebServlet("/addUserSerlvet")
-public class AddUserSerlvet extends HttpServlet {
+@WebServlet("/viewAllUsersServlet")
+public class ViewAllUsersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddUserSerlvet() {
+    public ViewAllUsersServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,9 +25,19 @@ public class AddUserSerlvet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		UserHelper dao = new UserHelper();
+		
+		request.setAttribute("allUsers", dao.showAllUsers());
+		
+		String path = "/user-list.jsp";
+		
+		if(dao.showAllUsers().isEmpty()) {
+			path = "index.html";
+		}
+		
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
@@ -37,15 +45,7 @@ public class AddUserSerlvet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String fName = request.getParameter("fName");
-		String lName = request.getParameter("lName");
-		String age = request.getParameter("age");
-		
-		User u = new User (fName, lName, age);
-		
-		UserHelper dao = new UserHelper();
-		dao.insertUser(u);
-		getServletContext().getRequestDispatcher("/viewAllUsersServlet").forward(request, response);
+		doGet(request, response);
 	}
 
 }

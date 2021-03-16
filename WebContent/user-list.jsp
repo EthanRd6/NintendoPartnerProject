@@ -14,11 +14,11 @@
 <body>
 	<h4>Select your name</h4>
 	<br>
-	<form method="post" action = "navigationServlet">
+	<form method="post" action = "userNavigationServlet">
 	<table>
 	<c:forEach items="${requestScope.allUsers}" var="currentUser">
 	<tr>
-		<td><input type="radio" name="id" value="${currentUser.id}"></td>
+<%-- 		<td><input type="radio" name="id" value="${currentUser.UserId}"></td> --%>
 		<td><h2>${currentUser.fName}</h2></td>
 		<td><h2>${currentUser.lName}</h2></td></tr>
 		<c:forEach var="gameVal" items="currentUser.listOfGames">

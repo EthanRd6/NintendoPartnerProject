@@ -23,14 +23,14 @@ public class ListDetailsHelper {
 	
 	public List<ListDetails> getLists() {
 		EntityManager em = emfactory.createEntityManager();
-		List<ListDetails> allDetails = em.createQuery("SELECT d FROM usergamelist d").getResultList();
+		List<ListDetails> allDetails = em.createQuery("SELECT d FROM ListDetails d").getResultList();
 		return allDetails;
 	}
 	
 	public void deleteList(ListDetails toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<ListDetails> typedQuery = em.createQuery("select detail from usergamelist "
+		TypedQuery<ListDetails> typedQuery = em.createQuery("select detail from ListDetails "
 				+ "detail where detail.id = :selectedId", ListDetails.class);
 		
 		//Substitute parameter with actual data form the toDelete item
