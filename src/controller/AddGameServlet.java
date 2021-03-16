@@ -40,7 +40,7 @@ public class AddGameServlet extends HttpServlet {
 		LocalDate ld;
 		
 		try {
-			ld = LocalDate.of(Integer.parseInt(year), null, (Integer) null);
+			ld = LocalDate.of(Integer.parseInt(year), 1, 1);
 		}catch(NumberFormatException ex) {
 			ld = LocalDate.now();
 		}

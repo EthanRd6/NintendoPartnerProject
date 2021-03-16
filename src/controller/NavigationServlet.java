@@ -48,7 +48,7 @@ public class NavigationServlet extends HttpServlet {
 			try {
 				Integer tempId = Integer.parseInt(request.getParameter("id"));
 				Games gameToEdit = dao.searchForGameById(tempId);
-				request.setAttribute("carToEdit", gameToEdit);
+				request.setAttribute("gameToEdit", gameToEdit);
 				path = "/edit-game.jsp";
 			} catch (NumberFormatException e) {
 				System.out.println("Forgot to select an item");
