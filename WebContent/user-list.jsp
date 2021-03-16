@@ -18,13 +18,13 @@
 	<table>
 	<c:forEach items="${requestScope.allUsers}" var="currentUser">
 	<tr>
-<%-- 		<td><input type="radio" name="id" value="${currentUser.UserId}"></td> --%>
+	<td><input type="radio" name="id" value="${currentUser.UserId}"></td> 
 		<td><h2>${currentUser.fName}</h2></td>
 		<td><h2>${currentUser.lName}</h2></td></tr>
-		<c:forEach var="gameVal" items="currentUser.listOfGames">
-			<tr><td></td><td colspan="3">${gameVal.name}, ${gameVal.year}</td></tr>
-			</c:forEach>
-	</c:forEach>
+<%-- 		<c:forEach var="gameVal" items="currentUser.listOfGames"> --%>
+<%-- 			<tr><td></td><td colspan="3">${gameVal.name}, ${gameVal.year}</td></tr> --%>
+<%-- 			</c:forEach> --%>
+	</c:forEach> 
 	</table>
 	<input type="submit" value="edit" name="doThisToUser">
 	<input type="submit" value="delete" name="doThisToUser">
