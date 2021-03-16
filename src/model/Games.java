@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +23,7 @@ public class Games {
 	@Column(name="ID")
 	private int id;
 	@Column(name="YEAR")
-	private int year;
+	private LocalDate year;
 	@Column(name="NAME")
 	private String name;
 	@Column(name="TYPE")
@@ -38,20 +40,20 @@ public class Games {
 		this.name = name;
 	}
 
-	public Games(int year, String name) {
+	public Games(LocalDate year, String name) {
 		super();
 		this.year = year;
 		this.name = name;
 	}
 
-	public Games(int year, String name, int numPlayers) {
+	public Games(LocalDate year, String name, int numPlayers) {
 		super();
 		this.year = year;
 		this.name = name;
 		this.numPlayers = numPlayers;
 	}
 
-	public Games(int year, String name, String type, int numPlayers) {
+	public Games(LocalDate year, String name, String type, int numPlayers) {
 		super();
 		this.year = year;
 		this.name = name;
@@ -67,11 +69,11 @@ public class Games {
 		this.id = id;
 	}
 
-	public int getYear() {
+	public LocalDate getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(LocalDate year) {
 		this.year = year;
 	}
 

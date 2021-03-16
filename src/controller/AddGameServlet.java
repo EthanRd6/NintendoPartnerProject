@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,9 +34,12 @@ public class AddGameServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String type = request.getParameter("type");
 		Integer year = Integer.parseInt(request.getParameter("year"));
+		Integer month = Integer.parseInt(request.getParameter("month"));
+		Integer day = Integer.parseInt(request.getParameter("day"));
+		LocalDate date = LocalDate.of(year, month, day);
 		Integer numPlayers = Integer.parseInt(request.getParameter("numPlayers"));
 		
-		Games g = new Games(year, name, type, numPlayers);
+		Games g = new Games(date, name, type, numPlayers);
 		GamesHelper dao = new GamesHelper();
 		dao.addGame(g);
 		

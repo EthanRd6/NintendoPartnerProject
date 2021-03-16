@@ -17,6 +17,8 @@
 	<form action = "addGameServlet" method="post">
 Name: <input type = "text" name = "name"><br>
 Year Released: <input type = "text" name = "year"><br>
+Month Released: <input type = "text" name = "month"><br>
+Day Released: <input type = "text" name = "day"><br>
 Game Type: <input type = "text" name = "type"><br>
 Number of Players: <input type = "text" name = "numPlayers"><br>
 <input type = "submit" value= "Add Game">
