@@ -33,7 +33,9 @@ public class AddGameServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String name = request.getParameter("name");
 		String type = request.getParameter("type");
+
 		String year = request.getParameter("year");
+
 		Integer numPlayers = Integer.parseInt(request.getParameter("numPlayers"));
 		LocalDate ld;
 		
@@ -43,7 +45,9 @@ public class AddGameServlet extends HttpServlet {
 			ld = LocalDate.now();
 		}
 		
+
 		Games g = new Games(ld, name, type, numPlayers);
+
 		GamesHelper dao = new GamesHelper();
 		dao.addGame(g);
 		

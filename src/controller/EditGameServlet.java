@@ -36,7 +36,9 @@ public class EditGameServlet extends HttpServlet {
 		GamesHelper dao = new GamesHelper();
 		
 		String name = request.getParameter("name");
+
 		String year = request.getParameter("year");
+
 		String type = request.getParameter("type");
 		Integer numPlayers = Integer.parseInt(request.getParameter("numPlayers"));
 		Integer tempId = Integer.parseInt(request.getParameter("id"));
@@ -50,7 +52,9 @@ public class EditGameServlet extends HttpServlet {
 		
 		Games gameToUpdate = dao.searchForGameById(tempId);
 		gameToUpdate.setName(name);
+
 		gameToUpdate.setYear(ld);
+
 		gameToUpdate.setType(type);
 		gameToUpdate.setNumPlayers(numPlayers);
 		
