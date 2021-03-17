@@ -26,7 +26,7 @@ public class User {
 	@Column(name="LAST_NAME")
 	private String lName;
 	@Column(name="AGE")
-	private String age;
+	private int age;
 	
 	
 	public User() {
@@ -45,7 +45,7 @@ public class User {
 		this.lName = lName;
 	}
 	
-	public User(String fName, String lName, String age) {
+	public User(String fName, String lName, int age) {
 		super();
 		
 		this.fName = fName;
@@ -72,10 +72,10 @@ public class User {
 	public void setlName(String lName) {
 		this.lName = lName;
 	}
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 	

@@ -20,12 +20,12 @@
         User Last Name: <input type="text" name="lName"><br/>
         User Age: <input type="text" name="age"><br/>
         Available Games: <br/>
-    <select name="allGamesToAdd" multiple size="6">
-    <c:forEach items="${requestScope.allGamesToAdd}" var="currentgame">
-        <option value="${currentgame.game_Id}">${currentgame.name}|${currentgame.year}|${currentgame.type}${currentgame.numPlayers}</option>
-    </c:forEach>
-    </select>
-    <br/>
+    <select name="allItemsToAdd" multiple size = "6">
+			<c:forEach items="${requestScope.allItems}" var="currentitem">
+				<option value="$currentitem.id">${currentitem.name} | ${currentitem.year}</option>
+			</c:forEach>
+		</select>
+		<br/>
     <input type="submit" value="Create List and Add Games">
     </form>
     <a href="index.html">Home</a>

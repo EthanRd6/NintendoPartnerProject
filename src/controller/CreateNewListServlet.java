@@ -34,22 +34,15 @@ public class CreateNewListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		getServletContext().getRequestDispatcher("/new-list.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		GamesHelper lih = new GamesHelper();
 		String listName = request.getParameter("listName");
 		System.out.println("List Name: " + listName);
+		
 		String userFirstName = request.getParameter("fName");
 		String userLastName = request.getParameter("lName");
 
 		
-		String[] selectedGames = request.getParameterValues("allGamesToAdd");
+		String[] selectedGames = request.getParameterValues("allItemsToAdd");
 		List<Games> selectedGamesInList = new ArrayList <Games>();
 		//make sure something was selected - otherwise we get a null pointer exception
 		if (selectedGames!= null && selectedGames.length > 0)
@@ -69,7 +62,17 @@ public class CreateNewListServlet extends HttpServlet {
 		System.out.println("Success!");
 		System.out.println(sld.toString());
 		
-		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		
+		doGet(request, response);
 	}
 
 }

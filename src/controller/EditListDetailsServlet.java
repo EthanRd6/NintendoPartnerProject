@@ -57,19 +57,19 @@ doGet(request, response);
 		
 		
 		try {
-			String [] selectedBikes = request.getParameterValues("allBikesToAdd");
-			List<Games> selectedBikesInList = new ArrayList<Games>();
+			String [] selectedGames = request.getParameterValues("allItemsToAdd");
+			List<Games> selectedGamesInList = new ArrayList<Games>();
 			
-			for (int i = 0; i < selectedBikes.length; i++) {
-				System.out.println(selectedBikes[i]);
-				Games c = lbh.searchForGameById(Integer.parseInt(selectedBikes[i]));
-				selectedBikesInList.add(c);
+			for (int i = 0; i < selectedGames.length; i++) {
+				System.out.println(selectedGames[i]);
+				Games c = lbh.searchForGameById(Integer.parseInt(selectedGames[i]));
+				selectedGamesInList.add(c);
 			}
 			
-			listToUpdate.setListOfGames(selectedBikesInList);
+			listToUpdate.setListOfGames(selectedGamesInList);
 		} catch (NullPointerException e) {
-			List<Games> selectedBikesInList = new ArrayList<Games>();
-			listToUpdate.setListOfGames(selectedBikesInList);
+			List<Games> selectedGamesInList = new ArrayList<Games>();
+			listToUpdate.setListOfGames(selectedGamesInList);
 		}
 		
 		listToUpdate.setListName(newListName);
