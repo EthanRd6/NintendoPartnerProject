@@ -29,10 +29,10 @@ public class AddGamesForListServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		GamesHelper dao = new GamesHelper();
 		
-		request.setAttribute("allBikes", dao.showAllGames());
+		request.setAttribute("allItems", dao.showAllGames());
 		
 		if(dao.showAllGames().isEmpty()) {
-			request.setAttribute("allBikes", " ");
+			request.setAttribute("allItems", "There are no games ");
 		}
 		
 		getServletContext().getRequestDispatcher("/new-list.jsp").forward(request, response);

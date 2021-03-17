@@ -26,7 +26,7 @@ public class GameTester {
 		myGames.add(mario);
 		myGames.add(yoshi);
 		
-		ListDetails myList = new ListDetails("Alex's Games", me);
+		ListDetails myList = new ListDetails("Alex's Games", me, myGames);
 		
 		ldh.insertNewListDetails(myList);
 		

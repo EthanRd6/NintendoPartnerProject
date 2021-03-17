@@ -20,9 +20,9 @@
         User Last Name: <input type="text" name="lName"><br/>
         User Age: <input type="text" name="age"><br/>
         Available Games: <br/>
-    <select name="allItemsToAdd" multiple size = "6">
+    <select name="allItemsToAdd" multiple size = "12">
 			<c:forEach items="${requestScope.allItems}" var="currentitem">
-				<option value="$currentitem.id">${currentitem.name} | ${currentitem.year}</option>
+				<option value="${currentitem.id}">${currentitem.name} | ${currentitem.year}</option>
 			</c:forEach>
 		</select>
 		<br/>

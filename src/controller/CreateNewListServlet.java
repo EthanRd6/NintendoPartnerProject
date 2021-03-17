@@ -44,7 +44,7 @@ public class CreateNewListServlet extends HttpServlet {
 		
 		String[] selectedGames = request.getParameterValues("allItemsToAdd");
 		List<Games> selectedGamesInList = new ArrayList <Games>();
-		//make sure something was selected - otherwise we get a null pointer exception
+		
 		if (selectedGames!= null && selectedGames.length > 0)
 		{
 			for(int i= 0; i<selectedGames.length;i++) {
@@ -54,7 +54,7 @@ public class CreateNewListServlet extends HttpServlet {
 			}
 		}
 		User user = new User(userFirstName, userLastName);
-		ListDetails sld = new ListDetails(listName, user);
+		ListDetails sld = new ListDetails(listName, user, selectedGamesInList);
 		sld.setListOfGames(selectedGamesInList);
 		ListDetailsHelper slh = new ListDetailsHelper();
 		slh.insertNewListDetails(sld);
@@ -63,6 +63,7 @@ public class CreateNewListServlet extends HttpServlet {
 		System.out.println(sld.toString());
 		
 		getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
+		
 	}
 
 	/**
@@ -71,8 +72,8 @@ public class CreateNewListServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		
 		doGet(request, response);
+		
 	}
 
 }
