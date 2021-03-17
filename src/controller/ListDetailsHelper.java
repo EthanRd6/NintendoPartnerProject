@@ -30,8 +30,7 @@ public class ListDetailsHelper {
 	public void deleteList(ListDetails toDelete) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<ListDetails> typedQuery = em.createQuery("select detail from ListDetails "
-				+ "detail where detail.id = :selectedId", ListDetails.class);
+		TypedQuery<ListDetails> typedQuery = em.createQuery("SELECT d from ListDetails d where d.listID = :selectedId", ListDetails.class);
 		
 		//Substitute parameter with actual data form the toDelete item
 		typedQuery.setParameter("selectedId", toDelete.getId());

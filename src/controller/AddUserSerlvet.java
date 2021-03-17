@@ -39,7 +39,7 @@ public class AddUserSerlvet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String fName = request.getParameter("fName");
 		String lName = request.getParameter("lName");
-		String age = request.getParameter("age");
+		int age = Integer.parseInt(request.getParameter("age"));
 		
 		User u = new User (fName, lName, age);
 		

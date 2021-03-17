@@ -17,10 +17,10 @@
 	<table>
 	<c:forEach items="${requestScope.allLists}" var="currentlist">
 	<tr>
-		<td><input type="radio" name="id" value="${currentlist.listID}"></td>
-		<td><h2>${currentlist.listName}</h2></td></tr>
-		<td><h2>${currentlist.user.fName}, ${currentlist.user.lName}</h2></td>
-		<td><h4>Age: ${currentlist.user.age}</h4></td>
+		<td><input type="radio" name="id" value="${currentlist.id}"></td>
+		<td>${currentlist.listName}</td></tr>
+		<td>${currentlist.user.fName}, ${currentlist.user.lName}</td>
+		<td>Age: ${currentlist.user.age}</td>
 		<c:forEach var="listVal" items="${currentlist.listOfGames}">
 			<tr><td></td><td colspan="4">
 				${listVal.name} , ${listVal.year}, ${listVal.type}, ${listVal.numPlayers}
@@ -33,7 +33,7 @@
 	<input type="submit" value="delete" name="doThisToList">
 	<input type="submit" value="add" name="doThisToList">
 	</form>
-	<a href="Index.html">Home</a>
+	<a href="index.html">Home</a>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
