@@ -21,7 +21,7 @@
 		Available items: <br/>
 		<select name="allItemsToAdd" multiple size = "6">
 			<c:forEach items="${requestScope.allItems}" var="currentitem">
-				<option value="$currentitem.id">${currentitem.name} | ${currentitem.year}</option>
+				<option value="${ currentitem.id}">${currentitem.name} | ${currentitem.year}</option>
 			</c:forEach>
 		</select>
 		<br/>
