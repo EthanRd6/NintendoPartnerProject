@@ -29,8 +29,8 @@ public class UserHelper {
 	public User findUser(String nameToLookUp) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();
-		TypedQuery<User> typedQuery = em.createQuery("select sh from User sh "
-				+ "where sh.userName = :selectedName", User.class);
+		TypedQuery<User> typedQuery = em.createQuery("select s from User s "
+				+ "where s.name = :selectedName", User.class);
 		typedQuery.setParameter("selectedName", nameToLookUp);
 		User foundUser;
 		try {
